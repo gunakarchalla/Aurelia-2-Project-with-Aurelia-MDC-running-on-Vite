@@ -1,0 +1,11 @@
+<import from="./views/card"></import>
+
+<!-- clicking the button triggers the generate method in my-app.ts-->
+<button click.trigger="generate()">Start</button>
+<div class="grid">
+    <!-- for each element in the "cards" array we create a memory-card view and bind the card values -->
+    <card repeat.for="c of cards" symbol.bind="c.symbol" visible.bind="c.visible" click.trigger="showCard(c)"></card>
+</div>
+<div>
+    <h2>Misses: ${scoreCounter.misses}</h2>
+</div>
