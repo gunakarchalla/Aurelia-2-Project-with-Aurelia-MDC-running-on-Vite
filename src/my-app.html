@@ -1,11 +1,17 @@
 <import from="./views/card"></import>
 
 <!-- clicking the button triggers the generate method in my-app.ts-->
-<button click.trigger="generate()">Start</button>
+<button mdc-button outlined click.trigger="generate()">Start</button>
 <div class="grid">
     <!-- for each element in the "cards" array we create a memory-card view and bind the card values -->
     <card repeat.for="c of cards" symbol.bind="c.symbol" visible.bind="c.visible" click.trigger="showCard(c)"></card>
 </div>
 <div>
     <h2>Misses: ${scoreCounter.misses}</h2>
+    <h2>Progress:</h2>
+    <mdc-linear-progress progress.bind="progress">
+    </mdc-linear-progress>
 </div>
+<style lang="scss">
+    @import "./styles/mdc.scss";
+    </style>

@@ -7,6 +7,7 @@ const symbols: string[] = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
 @inject(ScoreCounter)
 export class MyApp {
   public cards: Card[] = [];
+  public progress: number = 0;
 
   constructor(
     private scoreCounter: ScoreCounter
@@ -35,7 +36,7 @@ export class MyApp {
 
     // This is a hack to force the cards to re-render
     // necessary since the array is mutated in place
-    this.cards.push({});
+    this.cards.push({} as Card);
     this.cards.pop();
   }
 
@@ -46,6 +47,8 @@ export class MyApp {
       selected.matched = true;
       candidate.matched = true;
       selected.visible = true;
+      this.progress = this.getProgress();
+      console.log(this.progress);
     } else if (candidate && candidate.symbol !== selected.symbol) {
       selected.visible = false;
       candidate.visible = false;
@@ -55,5 +58,10 @@ export class MyApp {
     }
   }
 
-
+  // This function is used to calculate the progress of the game
+  public getProgress(): number {
+    const matched = this.cards.filter(c => c.matched).length;
+    const total = this.cards.length;
+    return matched / total;
+  }
 }
