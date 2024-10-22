@@ -6,13 +6,8 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `
-          // @import "./src/styles/_animations.scss";
-          // @import "./src/styles/_variables.scss";
-          // @import "./src/styles/_mixins.scss";
-          // @import "./src/styles/_helpers.scss";
-          @import "./src/styles/mdc.scss";
-        `
+        quietDeps: true,
+        api: 'modern',
       }
     }
   },
@@ -27,7 +22,6 @@ export default defineConfig({
     esbuildOptions: {
       loader: {
         '.html': 'text',
-        // '.scss': 'text',
       },
     },
   },
