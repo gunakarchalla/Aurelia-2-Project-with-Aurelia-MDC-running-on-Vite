@@ -31,8 +31,8 @@ A memory card game built with **Aurelia 2** and **Material Design Components (MD
 
 ```bash
 # Clone the repository
-git clone <repository-url>
-cd no_mdc
+git clone https://github.com/gunakarchalla/Aurelia-2-Project-with-Aurelia-MDC-running-on-Vite.git
+cd Aurelia-2-Project-with-Aurelia-MDC-running-on-Vite
 
 # Install dependencies
 npm install
